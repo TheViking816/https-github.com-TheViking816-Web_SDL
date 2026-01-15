@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html class="light" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Servicios - Luján Soluciones Digitales</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#3B82F6",
+                        "background-light": "#FFFFFF",
+                        "charcoal": "#1F2937",
+                    },
+                    fontFamily: {
+                        "display": ["Lexend", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "2xl": "1.5rem",
+                    },
+                },
+            },
+        }
+    </script>
+<style type="text/tailwindcss">
+        body {
+            font-family: 'Lexend', sans-serif;
+            @apply bg-background-light text-charcoal;
+        }
+        .service-card {
+            @apply bg-white border border-gray-100 rounded-2xl p-8 transition-all duration-300 hover:shadow-xl hover:shadow-primary/5 hover:-translate-y-1;
+        }
+    </style>
+</head>
+<body class="antialiased">
+<header class="sticky top-0 z-50 bg-white/80 backdrop-blur-md border-b border-gray-50">
+<div class="max-w-6xl mx-auto px-6 h-20 flex items-center justify-between">
+<div class="flex items-center gap-3">
+<div class="bg-primary text-white p-2 rounded-xl flex items-center justify-center">
+<span class="material-symbols-outlined text-2xl">terminal</span>
+</div>
+<h1 class="text-xl font-bold tracking-tight text-charcoal">Luján Soluciones Digitales</h1>
+</div>
+<nav class="hidden md:flex items-center gap-10">
+<a class="text-sm font-medium hover:text-primary transition-colors" href="#">Inicio</a>
+<a class="text-sm font-medium text-primary" href="#">Servicios</a>
+<a class="text-sm font-medium hover:text-primary transition-colors" href="#">Portfolio</a>
+<a class="text-sm font-medium hover:text-primary transition-colors" href="#">Contacto</a>
+<button class="bg-primary text-white px-6 py-2.5 rounded-full text-sm font-bold shadow-lg shadow-primary/20 hover:shadow-primary/30 transition-all active:scale-95">
+                    Hablemos
+                </button>
+</nav>
+<button class="md:hidden text-charcoal">
+<span class="material-symbols-outlined">menu</span>
+</button>
+</div>
+</header>
+<main>
+<section class="max-w-4xl mx-auto px-6 pt-20 pb-16 text-center">
+<h2 class="text-4xl md:text-5xl font-black mb-6 tracking-tight">Nuestros Servicios</h2>
+<p class="text-lg text-gray-500 leading-relaxed max-w-2xl mx-auto">
+                Transformamos tus ideas en realidades digitales escalables. Soluciones diseñadas para potenciar el crecimiento de tu negocio.
+            </p>
+</section>
+<section class="max-w-6xl mx-auto px-6 pb-24">
+<div class="grid md:grid-cols-2 gap-8">
+<div class="service-card flex flex-col items-start gap-6">
+<div class="size-14 rounded-2xl bg-primary/10 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-3xl">grid_view</span>
+</div>
+<div>
+<h3 class="text-2xl font-bold mb-4">Desarrollo SaaS &amp; PWA</h3>
+<p class="text-gray-500 leading-relaxed">
+                            Construimos aplicaciones web progresivas y plataformas de software como servicio potentes, rápidas y accesibles desde cualquier dispositivo sin necesidad de instalación.
+                        </p>
+</div>
+<div class="mt-auto pt-4">
+<a class="text-primary font-bold text-sm flex items-center gap-2 group" href="#">
+                            Saber más
+                            <span class="material-symbols-outlined text-lg transition-transform group-hover:translate-x-1">arrow_forward</span>
+</a>
+</div>
+</div>
+<div class="service-card flex flex-col items-start gap-6">
+<div class="size-14 rounded-2xl bg-primary/10 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-3xl">psychology</span>
+</div>
+<div>
+<h3 class="text-2xl font-bold mb-4">Automatización con IA</h3>
+<p class="text-gray-500 leading-relaxed">
+                            Integramos inteligencia artificial en tus flujos de trabajo para optimizar procesos, reducir tareas repetitivas y mejorar la toma de decisiones basada en datos.
+                        </p>
+</div>
+<div class="mt-auto pt-4">
+<a class="text-primary font-bold text-sm flex items-center gap-2 group" href="#">
+                            Saber más
+                            <span class="material-symbols-outlined text-lg transition-transform group-hover:translate-x-1">arrow_forward</span>
+</a>
+</div>
+</div>
+<div class="service-card flex flex-col items-start gap-6">
+<div class="size-14 rounded-2xl bg-primary/10 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-3xl">shopping_bag</span>
+</div>
+<div>
+<h3 class="text-2xl font-bold mb-4">Marketplaces y E-commerce</h3>
+<p class="text-gray-500 leading-relaxed">
+                            Diseñamos experiencias de compra fluidas con sistemas de pago integrados, gestión de inventario inteligente y arquitecturas escalables para vender en todo el mundo.
+                        </p>
+</div>
+<div class="mt-auto pt-4">
+<a class="text-primary font-bold text-sm flex items-center gap-2 group" href="#">
+                            Saber más
+                            <span class="material-symbols-outlined text-lg transition-transform group-hover:translate-x-1">arrow_forward</span>
+</a>
+</div>
+</div>
+<div class="service-card flex flex-col items-start gap-6">
+<div class="size-14 rounded-2xl bg-primary/10 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-3xl">settings_suggest</span>
+</div>
+<div>
+<h3 class="text-2xl font-bold mb-4">Consultoría Técnica</h3>
+<p class="text-gray-500 leading-relaxed">
+                            Te acompañamos en la definición de tu stack tecnológico, auditorías de código y planificación estratégica para asegurar que tu infraestructura soporte el crecimiento futuro.
+                        </p>
+</div>
+<div class="mt-auto pt-4">
+<a class="text-primary font-bold text-sm flex items-center gap-2 group" href="#">
+                            Saber más
+                            <span class="material-symbols-outlined text-lg transition-transform group-hover:translate-x-1">arrow_forward</span>
+</a>
+</div>
+</div>
+</div>
+</section>
+<section class="bg-gray-50 py-24">
+<div class="max-w-4xl mx-auto px-6 text-center">
+<div class="bg-white p-12 rounded-2xl border border-gray-100 shadow-sm">
+<h2 class="text-3xl font-bold mb-6">¿Tienes un proyecto en mente?</h2>
+<p class="text-gray-500 mb-10">Agenda una sesión estratégica gratuita para analizar cómo podemos ayudarte a digitalizar tu visión.</p>
+<div class="flex flex-col sm:flex-row justify-center gap-4">
+<button class="bg-primary text-white px-8 py-4 rounded-xl font-bold shadow-xl shadow-primary/20 hover:bg-primary/90 transition-all">
+                            Agendar consulta
+                        </button>
+<button class="bg-white text-charcoal border border-gray-200 px-8 py-4 rounded-xl font-bold hover:bg-gray-50 transition-all">
+                            Ver portfolio
+                        </button>
+</div>
+</div>
+</div>
+</section>
+</main>
+<footer class="py-12 border-t border-gray-100">
+<div class="max-w-6xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-8">
+<div class="flex items-center gap-3 opacity-80">
+<span class="material-symbols-outlined text-primary">terminal</span>
+<span class="font-bold text-sm">Luján Soluciones Digitales</span>
+</div>
+<div class="flex gap-8 text-sm font-medium text-gray-500">
+<a class="hover:text-primary" href="#">Privacidad</a>
+<a class="hover:text-primary" href="#">Términos</a>
+<a class="hover:text-primary" href="#">LinkedIn</a>
+</div>
+<p class="text-gray-400 text-xs flex items-center gap-1.5 font-medium">
+                Hecho con <span class="text-red-500 material-symbols-outlined text-xs fill-1">favorite</span> por Adrián Luján
+            </p>
+</div>
+</footer>
+
+</body></html>

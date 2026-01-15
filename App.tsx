@@ -26,7 +26,7 @@ const Navbar = () => {
                     <div className="bg-primary text-white p-2 rounded-lg flex items-center justify-center">
                         <span className="material-symbols-outlined text-xl">terminal</span>
                     </div>
-                    <h1 className="text-lg font-bold tracking-tight text-charcoal dark:text-white">Luján Digital</h1>
+                    <h1 className="text-lg font-bold tracking-tight text-charcoal dark:text-white">Soluciones Digitales Lujan</h1>
                 </Link>
                 
                 <nav className="hidden md:flex items-center gap-8">
@@ -63,12 +63,9 @@ const Footer = () => (
         <div className="max-w-6xl mx-auto px-6 text-center">
             <div className="flex items-center justify-center gap-3 mb-6 opacity-60">
                 <span className="material-symbols-outlined text-xl text-primary font-bold">terminal</span>
-                <p className="text-sm font-bold tracking-tight text-charcoal dark:text-white">Luján Soluciones Digitales</p>
+                <p className="text-sm font-bold tracking-tight text-charcoal dark:text-white">Soluciones Digitales Lujan</p>
             </div>
             <p className="text-gray-400 text-sm mb-4">© 2024 Adrián Luján. Todos los derechos reservados.</p>
-            <p className="text-gray-500 dark:text-gray-400 text-xs flex items-center justify-center gap-1.5 font-medium">
-                Valencia, España | Hecho con <span className="text-red-500 material-symbols-outlined text-xs fill-1">favorite</span>
-            </p>
         </div>
     </footer>
 );
@@ -184,6 +181,92 @@ const PortfolioPage = () => (
     </main>
 );
 
+const ServicesPage = () => (
+    <main className="pt-32">
+        <section className="max-w-4xl mx-auto px-6 pt-8 pb-16 text-center">
+            <RevealOnScroll>
+                <h2 className="text-4xl md:text-5xl font-black mb-6 tracking-tight">Nuestros Servicios</h2>
+                <p className="text-lg text-gray-500 dark:text-gray-400 leading-relaxed max-w-2xl mx-auto">
+                    Transformamos tus ideas en realidades digitales escalables. Soluciones diseñadas para potenciar el crecimiento de tu negocio.
+                </p>
+            </RevealOnScroll>
+        </section>
+        <section className="max-w-6xl mx-auto px-6 pb-24">
+            <div className="grid md:grid-cols-2 gap-8">
+                {[
+                    {
+                        icon: "grid_view",
+                        title: "Desarrollo SaaS & PWA",
+                        description:
+                            "Construimos aplicaciones web progresivas y plataformas de software como servicio potentes, rápidas y accesibles desde cualquier dispositivo sin necesidad de instalación."
+                    },
+                    {
+                        icon: "psychology",
+                        title: "Automatización con IA",
+                        description:
+                            "Integramos inteligencia artificial en tus flujos de trabajo para optimizar procesos, reducir tareas repetitivas y mejorar la toma de decisiones basada en datos."
+                    },
+                    {
+                        icon: "shopping_bag",
+                        title: "Marketplaces y E-commerce",
+                        description:
+                            "Diseñamos experiencias de compra fluidas con sistemas de pago integrados, gestión de inventario inteligente y arquitecturas escalables para vender en todo el mundo."
+                    },
+                    {
+                        icon: "settings_suggest",
+                        title: "Consultoría Técnica",
+                        description:
+                            "Te acompañamos en la definición de tu stack tecnológico, auditorías de código y planificación estratégica para asegurar que tu infraestructura soporte el crecimiento futuro."
+                    }
+                ].map(service => (
+                    <RevealOnScroll key={service.title} className="service-card flex flex-col items-start gap-6">
+                        <div className="size-14 rounded-2xl bg-primary/10 flex items-center justify-center text-primary">
+                            <span className="material-symbols-outlined text-3xl">{service.icon}</span>
+                        </div>
+                        <div>
+                            <h3 className="text-2xl font-bold mb-4">{service.title}</h3>
+                            <p className="text-gray-500 dark:text-gray-400 leading-relaxed">{service.description}</p>
+                        </div>
+                        <div className="mt-auto pt-4">
+                            <Link
+                                to="/contacto"
+                                className="text-primary font-bold text-sm flex items-center gap-2 group"
+                            >
+                                Saber más
+                                <span className="material-symbols-outlined text-lg transition-transform group-hover:translate-x-1">arrow_forward</span>
+                            </Link>
+                        </div>
+                    </RevealOnScroll>
+                ))}
+            </div>
+        </section>
+        <section className="bg-gray-50 dark:bg-gray-900/50 py-24">
+            <div className="max-w-4xl mx-auto px-6 text-center">
+                <RevealOnScroll className="bg-white dark:bg-gray-800 p-12 rounded-2xl border border-gray-100 dark:border-gray-700 shadow-sm">
+                    <h2 className="text-3xl font-bold mb-6">¿Tienes un proyecto en mente?</h2>
+                    <p className="text-gray-500 dark:text-gray-400 mb-10">
+                        Agenda una sesión estratégica gratuita para analizar cómo podemos ayudarte a digitalizar tu visión.
+                    </p>
+                    <div className="flex flex-col sm:flex-row justify-center gap-4">
+                        <Link
+                            to="/contacto"
+                            className="bg-primary text-white px-8 py-4 rounded-xl font-bold shadow-xl shadow-primary/20 hover:bg-primary/90 transition-all"
+                        >
+                            Agendar consulta
+                        </Link>
+                        <Link
+                            to="/portfolio"
+                            className="bg-white dark:bg-gray-800 text-charcoal dark:text-white border border-gray-200 dark:border-gray-700 px-8 py-4 rounded-xl font-bold hover:bg-gray-50 dark:hover:bg-gray-700 transition-all"
+                        >
+                            Ver portfolio
+                        </Link>
+                    </div>
+                </RevealOnScroll>
+            </div>
+        </section>
+    </main>
+);
+
 const ContactPage = () => (
     <main className="pt-32 pb-24">
         <section className="max-w-6xl mx-auto px-6">
@@ -233,7 +316,7 @@ const App = () => {
                 <Navbar />
                 <Routes>
                     <Route path="/" element={<HomePage />} />
-                    <Route path="/servicios" element={<div className="pt-32 px-6 max-w-6xl mx-auto"><h2 className="text-4xl font-black">Servicios Disponibles</h2><p className="mt-4 text-gray-500">Próximamente más detalles...</p></div>} />
+                    <Route path="/servicios" element={<ServicesPage />} />
                     <Route path="/portfolio" element={<PortfolioPage />} />
                     <Route path="/contacto" element={<ContactPage />} />
                 </Routes>
