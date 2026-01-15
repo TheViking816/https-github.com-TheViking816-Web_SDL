@@ -287,7 +287,7 @@ const ContactPage = () => (
                             </div>
                             <div>
                                 <p className="text-xs font-bold text-gray-400 uppercase tracking-widest mb-1">Email</p>
-                                <p className="text-lg font-bold">hola@lujandigital.com</p>
+                                <p className="text-lg font-bold">a.adrianlujan.l@gmail.com</p>
                             </div>
                         </div>
                         <div className="flex items-center gap-6">
