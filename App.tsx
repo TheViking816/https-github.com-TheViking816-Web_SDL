@@ -5,6 +5,8 @@ import { PROJECTS } from './constants';
 import { RevealOnScroll } from './components/RevealOnScroll';
 import { ContactForm } from './components/ContactForm';
 
+const logoImg = new URL('./assets/images/icon2.png', import.meta.url).href;
+
 const Navbar = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const [isScrolled, setIsScrolled] = useState(false);
@@ -23,21 +25,22 @@ const Navbar = () => {
         <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? 'bg-white/90 dark:bg-background-dark/90 backdrop-blur-md shadow-md h-16' : 'bg-transparent h-20'}`}>
             <div className="max-w-6xl mx-auto px-6 h-full flex items-center justify-between">
                 <Link to="/" className="flex items-center gap-3">
-                    <div className="bg-primary text-white p-2 rounded-lg flex items-center justify-center">
-                        <span className="material-symbols-outlined text-xl">terminal</span>
+                    <div className="size-8 rounded-lg overflow-hidden flex items-center justify-center">
+                        <img src={logoImg} alt="Soluciones Digitales Lujan" className="w-full h-full object-contain" />
                     </div>
-                    <h1 className="text-lg font-bold tracking-tight text-charcoal dark:text-white">Soluciones Digitales Lujan</h1>
+                    <h1 className="text-lg font-bold tracking-tight text-charcoal dark:text-white">Soluciones Tecnológicas Lujan</h1>
                 </Link>
                 
                 <nav className="hidden md:flex items-center gap-8">
                     <Link className={`text-sm font-semibold transition-colors ${isActive('/') ? 'text-primary' : 'hover:text-primary dark:text-white/70'}`} to="/">Inicio</Link>
                     <Link className={`text-sm font-semibold transition-colors ${isActive('/servicios') ? 'text-primary' : 'hover:text-primary dark:text-white/70'}`} to="/servicios">Servicios</Link>
                     <Link className={`text-sm font-semibold transition-colors ${isActive('/portfolio') ? 'text-primary' : 'hover:text-primary dark:text-white/70'}`} to="/portfolio">Portfolio</Link>
+                    <Link className={`text-sm font-semibold transition-colors ${isActive('/sobre-mi') ? 'text-primary' : 'hover:text-primary dark:text-white/70'}`} to="/sobre-mi">Sobre mí</Link>
                     <button 
                         onClick={() => navigate('/contacto')}
                         className="bg-primary text-white px-6 py-2 rounded-full text-sm font-bold shadow-lg shadow-primary/20 hover:shadow-primary/40 transition-all active:scale-95"
                     >
-                        Hablemos
+                        Contacto
                     </button>
                 </nav>
 
@@ -51,6 +54,7 @@ const Navbar = () => {
                     <Link onClick={() => setIsMenuOpen(false)} className="text-lg font-bold" to="/">Inicio</Link>
                     <Link onClick={() => setIsMenuOpen(false)} className="text-lg font-bold" to="/servicios">Servicios</Link>
                     <Link onClick={() => setIsMenuOpen(false)} className="text-lg font-bold" to="/portfolio">Portfolio</Link>
+                    <Link onClick={() => setIsMenuOpen(false)} className="text-lg font-bold" to="/sobre-mi">Sobre mí</Link>
                     <Link onClick={() => setIsMenuOpen(false)} className="text-lg font-bold" to="/contacto">Contacto</Link>
                 </div>
             )}
@@ -63,7 +67,7 @@ const Footer = () => (
         <div className="max-w-6xl mx-auto px-6 text-center">
             <div className="flex items-center justify-center gap-3 mb-6 opacity-60">
                 <span className="material-symbols-outlined text-xl text-primary font-bold">terminal</span>
-                <p className="text-sm font-bold tracking-tight text-charcoal dark:text-white">Soluciones Digitales Lujan</p>
+                <p className="text-sm font-bold tracking-tight text-charcoal dark:text-white">Soluciones Tecnológicas Lujan</p>
             </div>
             <p className="text-gray-400 text-sm mb-4">© 2024 Adrián Luján. Todos los derechos reservados.</p>
         </div>
@@ -113,36 +117,8 @@ const HomePage = () => {
                     </div>
                 </RevealOnScroll>
             </section>
-            
-            <section className="bg-gray-50 dark:bg-gray-900/50 py-24">
-                <div className="max-w-6xl mx-auto px-6">
-                    <RevealOnScroll className="mb-16">
-                        <h2 className="text-3xl font-bold mb-4">Proyectos Principales</h2>
-                        <div className="h-1.5 w-20 bg-primary rounded-full"></div>
-                    </RevealOnScroll>
-                    <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                        {PROJECTS.map(project => (
-                            <RevealOnScroll key={project.id}>
-                                <div className="bg-white dark:bg-gray-800 rounded-xl overflow-hidden shadow-sm border border-gray-100 dark:border-gray-700 group hover:shadow-xl transition-all duration-300">
-                                    <div className="aspect-video overflow-hidden">
-                                        <img src={project.img} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" alt={project.title} />
-                                    </div>
-                                    <div className="p-6">
-                                        <span className={`text-[10px] font-black uppercase tracking-widest ${project.color.split(' ')[1]} mb-2 block`}>{project.category}</span>
-                                        <h3 className="text-xl font-bold mb-2 text-charcoal dark:text-white">{project.title}</h3>
-                                        <p className="text-gray-500 dark:text-gray-400 text-sm leading-relaxed mb-4">{project.desc}</p>
-                                        <div className="flex flex-wrap gap-2">
-                                            {project.tags.map(tag => (
-                                                <span key={tag} className="text-[9px] px-2 py-1 bg-gray-100 dark:bg-gray-700 rounded font-bold uppercase">{tag}</span>
-                                            ))}
-                                        </div>
-                                    </div>
-                                </div>
-                            </RevealOnScroll>
-                        ))}
-                    </div>
-                </div>
-            </section>
+
+
         </main>
     );
 };
@@ -185,7 +161,7 @@ const ServicesPage = () => (
     <main className="pt-32">
         <section className="max-w-4xl mx-auto px-6 pt-8 pb-16 text-center">
             <RevealOnScroll>
-                <h2 className="text-4xl md:text-5xl font-black mb-6 tracking-tight">Nuestros Servicios</h2>
+                <h2 className="text-4xl md:text-5xl font-black mb-6 tracking-tight">Mis Servicios</h2>
                 <p className="text-lg text-gray-500 dark:text-gray-400 leading-relaxed max-w-2xl mx-auto">
                     Transformamos tus ideas en realidades digitales escalables. Soluciones diseñadas para potenciar el crecimiento de tu negocio.
                 </p>
@@ -267,6 +243,65 @@ const ServicesPage = () => (
     </main>
 );
 
+const AboutPage = () => {
+    const perfilImg = new URL('./assets/images/perfil.png', import.meta.url).href;
+    return (
+        <main className="pt-32 pb-24">
+            <section id="sobre-mi" className="max-w-6xl mx-auto px-6">
+                <RevealOnScroll className="grid lg:grid-cols-[1.1fr_1fr] gap-12 items-center">
+                    <div className="space-y-6">
+                        <div className="inline-flex items-center gap-2 bg-primary/10 text-primary px-4 py-1.5 rounded-full text-sm font-semibold">
+                            <span className="material-symbols-outlined text-base">person</span>
+                            Sobre mí
+                        </div>
+                        <h2 className="text-4xl lg:text-5xl font-black leading-tight tracking-tight text-charcoal dark:text-white">
+                            Ingeniero electrónico y builder con foco en producto real.
+                        </h2>
+                        <p className="text-lg text-gray-500 dark:text-gray-400 leading-relaxed max-w-2xl">
+                            Combino disciplina operativa en logística portuaria con desarrollo moderno de software. He lanzado una PWA en producción para gestionar estibadores eventuales, con backend Supabase y frontend en React, y usuarios de pago activos.
+                        </p>
+                        <p className="text-lg text-gray-500 dark:text-gray-400 leading-relaxed max-w-2xl">
+                            Me muevo bien en entornos autónomos donde la ejecución y la resolución técnica son la prioridad. Si buscas a alguien que levante productos desde cero y los sostenga bajo presión, hablemos.
+                        </p>
+                        <div className="flex flex-wrap gap-2 pt-2">
+                            {[
+                                "JavaScript",
+                                "TypeScript",
+                                "React.js",
+                                "Node.js",
+                                "Supabase",
+                                "PostgreSQL",
+                                "Edge Functions",
+                                "Arquitectura Serverless",
+                                "Desarrollo de Software",
+                                "Arquitectura de Aplicaciones",
+                                "Producto Digital"
+                            ].map(skill => (
+                                <span
+                                    key={skill}
+                                    className="text-[11px] px-3 py-1 rounded-full bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300 font-bold uppercase tracking-wider"
+                                >
+                                    {skill}
+                                </span>
+                            ))}
+                        </div>
+                    </div>
+                    <div className="flex justify-center lg:justify-end">
+                        <div className="relative">
+                            <div className="absolute -inset-6 rounded-full bg-primary/10 blur-2xl"></div>
+                            <img
+                                src={perfilImg}
+                                alt="Adrián Luján"
+                                className="relative size-72 sm:size-80 rounded-full object-cover border-8 border-white dark:border-gray-800 shadow-2xl"
+                            />
+                        </div>
+                    </div>
+                </RevealOnScroll>
+            </section>
+        </main>
+    );
+};
+
 const ContactPage = () => (
     <main className="pt-32 pb-24">
         <section className="max-w-6xl mx-auto px-6">
@@ -318,6 +353,7 @@ const App = () => {
                     <Route path="/" element={<HomePage />} />
                     <Route path="/servicios" element={<ServicesPage />} />
                     <Route path="/portfolio" element={<PortfolioPage />} />
+                    <Route path="/sobre-mi" element={<AboutPage />} />
                     <Route path="/contacto" element={<ContactPage />} />
                 </Routes>
                 <Footer />
